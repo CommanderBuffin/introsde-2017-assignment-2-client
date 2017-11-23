@@ -1,0 +1,570 @@
+--- Step 3.1 ---
+Request #1: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person Accept: application/xml Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+<person idPerson="1">
+   <firstname>Mattia</firstname>
+   <lastname>Buffa</lastname>
+   <birthdate>1992-02-15</birthdate>
+   <activities>
+       <activity idActivity="101">
+           <name>Playing PUBG</name>
+           <description>Playing the PUBG videogame on PC</description>
+           <startdate>2017-11-24-15:00</startdate>
+           <place>Home</place>
+           <activity_type>
+               <atName>Videogaming</atName>
+           </activity_type>
+       </activity>
+   </activities>
+</person>
+<person idPerson="2">
+   <firstname>Denis</firstname>
+   <lastname>Gallo</lastname>
+   <birthdate>1993-04-15</birthdate>
+   <activities>
+       <activity idActivity="102">
+           <name>Playing LOL</name>
+           <description>Playing League Of Legends on PC</description>
+           <startdate>2017-11-25-18:25</startdate>
+           <place>Home</place>
+           <activity_type>
+               <atName>Videogaming</atName>
+           </activity_type>
+       </activity>
+   </activities>
+</person>
+<person idPerson="3">
+   <firstname>Linda</firstname>
+   <lastname>Bertolli</lastname>
+   <birthdate>1994-05-24</birthdate>
+   <activities>
+       <activity idActivity="103">
+           <name>Studying SDE</name>
+           <description>Studying the Theory ot SDE Course</description>
+           <startdate>2017-12-01-08:22</startdate>
+           <place>Library</place>
+           <activity_type>
+               <atName>Studying</atName>
+           </activity_type>
+       </activity>
+   </activities>
+</person>
+<person idPerson="4">
+   <firstname>Enrico</firstname>
+   <lastname>Tomiello</lastname>
+   <birthdate>1994-11-24</birthdate>
+   <activities>
+       <activity idActivity="104">
+           <name>Jogging</name>
+           <description>Running in the morning</description>
+           <startdate>2017-12-12-08:44</startdate>
+           <place>Trento</place>
+           <activity_type>
+               <atName>Sport</atName>
+           </activity_type>
+       </activity>
+   </activities>
+</person>
+<person idPerson="5">
+   <firstname>Christian</firstname>
+   <lastname>Corso</lastname>
+   <birthdate>1995-08-22</birthdate>
+   <activities>
+       <activity idActivity="105">
+           <name>Tennis</name>
+           <description>Playing Tennis</description>
+           <startdate>2017-11-30-17:33</startdate>
+           <place>Trento</place>
+           <activity_type>
+               <atName>Sport</atName>
+           </activity_type>
+       </activity>
+   </activities>
+</person>
+
+Request #1: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person Accept: application/json Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+{
+  "person" : {
+    "idPerson" : 1,
+    "firstname" : "Mattia",
+    "lastname" : "Buffa",
+    "birthdate" : "1992-02-15",
+    "activities" : [ {
+      "idActivity" : 101,
+      "name" : "Playing PUBG",
+      "description" : "Playing the PUBG videogame on PC",
+      "startdate" : "2017-11-24-15:00",
+      "place" : "Home",
+      "activity_type" : {
+        "atName" : "Videogaming"
+      }
+    } ]
+  }
+}
+{
+  "person" : {
+    "idPerson" : 2,
+    "firstname" : "Denis",
+    "lastname" : "Gallo",
+    "birthdate" : "1993-04-15",
+    "activities" : [ {
+      "idActivity" : 102,
+      "name" : "Playing LOL",
+      "description" : "Playing League Of Legends on PC",
+      "startdate" : "2017-11-25-18:25",
+      "place" : "Home",
+      "activity_type" : {
+        "atName" : "Videogaming"
+      }
+    } ]
+  }
+}
+{
+  "person" : {
+    "idPerson" : 3,
+    "firstname" : "Linda",
+    "lastname" : "Bertolli",
+    "birthdate" : "1994-05-24",
+    "activities" : [ {
+      "idActivity" : 103,
+      "name" : "Studying SDE",
+      "description" : "Studying the Theory ot SDE Course",
+      "startdate" : "2017-12-01-08:22",
+      "place" : "Library",
+      "activity_type" : {
+        "atName" : "Studying"
+      }
+    } ]
+  }
+}
+{
+  "person" : {
+    "idPerson" : 4,
+    "firstname" : "Enrico",
+    "lastname" : "Tomiello",
+    "birthdate" : "1994-11-24",
+    "activities" : [ {
+      "idActivity" : 104,
+      "name" : "Jogging",
+      "description" : "Running in the morning",
+      "startdate" : "2017-12-12-08:44",
+      "place" : "Trento",
+      "activity_type" : {
+        "atName" : "Sport"
+      }
+    } ]
+  }
+}
+{
+  "person" : {
+    "idPerson" : 5,
+    "firstname" : "Christian",
+    "lastname" : "Corso",
+    "birthdate" : "1995-08-22",
+    "activities" : [ {
+      "idActivity" : 105,
+      "name" : "Tennis",
+      "description" : "Playing Tennis",
+      "startdate" : "2017-11-30-17:33",
+      "place" : "Trento",
+      "activity_type" : {
+        "atName" : "Sport"
+      }
+    } ]
+  }
+}
+
+--- Step 3.2 ---
+Request #2: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1 Accept: application/xml Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+<person idPerson="1">
+   <firstname>Mattia</firstname>
+   <lastname>Buffa</lastname>
+   <birthdate>1992-02-15</birthdate>
+   <activities>
+       <activity idActivity="101">
+           <name>Playing PUBG</name>
+           <description>Playing the PUBG videogame on PC</description>
+           <startdate>2017-11-24-15:00</startdate>
+           <place>Home</place>
+           <activity_type>
+               <atName>Videogaming</atName>
+           </activity_type>
+       </activity>
+   </activities>
+</person>
+
+Request #2: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1 Accept: application/json Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+{
+  "person" : {
+    "idPerson" : 1,
+    "firstname" : "Mattia",
+    "lastname" : "Buffa",
+    "birthdate" : "1992-02-15",
+    "activities" : [ {
+      "idActivity" : 101,
+      "name" : "Playing PUBG",
+      "description" : "Playing the PUBG videogame on PC",
+      "startdate" : "2017-11-24-15:00",
+      "place" : "Home",
+      "activity_type" : {
+        "atName" : "Videogaming"
+      }
+    } ]
+  }
+}
+
+--- Step 3.3 ---
+Request #3: PUT http://assignment2-denisgallo.herokuapp.com/sdelab/person/1 Accept: application/xml Content-type: application/xml
+=> Result: OK
+=> HTTP Status: 201
+<person idPerson="1">
+   <firstname>Gianmarcanfrancarletto</firstname>
+   <lastname>Buffa</lastname>
+   <birthdate>1992-02-15</birthdate>
+   <activities>
+       <activity idActivity="101">
+           <name>Playing PUBG</name>
+           <description>Playing the PUBG videogame on PC</description>
+           <startdate>2017-11-24-15:00</startdate>
+           <place>Home</place>
+           <activity_type>
+               <atName>Videogaming</atName>
+           </activity_type>
+       </activity>
+   </activities>
+</person>
+
+Request #3: PUT http://assignment2-denisgallo.herokuapp.com/sdelab/person/1 Accept: application/json Content-type: application/json
+=> Result: OK
+=> HTTP Status: 201
+{
+  "person" : {
+    "idPerson" : 1,
+    "firstname" : "Gianmarcanfrancarletto",
+    "lastname" : "Buffa",
+    "birthdate" : "1992-02-15",
+    "activities" : [ {
+      "idActivity" : 101,
+      "name" : "Playing PUBG",
+      "description" : "Playing the PUBG videogame on PC",
+      "startdate" : "2017-11-24-15:00",
+      "place" : "Home",
+      "activity_type" : {
+        "atName" : "Videogaming"
+      }
+    } ]
+  }
+}
+
+--- Step 3.4 ---
+Request #4: POST http://assignment2-denisgallo.herokuapp.com/sdelab/person Accept: application/xml Content-type: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<person idPerson="2147483647">
+   <firstname>Mariangiongiangela</firstname>
+   <lastname>Canterniosti</lastname>
+   <birthdate>1990-05-21</birthdate>
+   <activities>
+       <activity idActivity="24">
+           <name>Troll Denis</name>
+           <description>Troll Denis for his server implementation</description>
+           <startdate>2017-11-22-12:10</startdate>
+           <place>Uni</place>
+           <activity_type>
+               <atName>Studying</atName>
+           </activity_type>
+       </activity>
+   </activities>
+</person>
+
+--- Step 3.5 ---
+Request #5: DELETE http://assignment2-denisgallo.herokuapp.com/sdelab/person/2147483647 Accept: application/xml Content-type: 
+=> Result: 
+=> HTTP Status: 204
+
+Request #2: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/2147483647 Accept: application/xml Content-type: 
+=> Result: ERROR
+=> HTTP Status: 404
+
+Request #2: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/2147483647 Accept: application/json Content-type: 
+=> Result: ERROR
+=> HTTP Status: 404
+
+--- Step 3.6 ---
+Request #6: GET http://assignment2-denisgallo.herokuapp.com/sdelab/activity_types Accept: application/xml Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+<activityType>
+   <atName>Videogaming</atName>
+</activityType>
+<activityType>
+   <atName>Sport</atName>
+</activityType>
+<activityType>
+   <atName>Studying</atName>
+</activityType>
+
+Request #6: GET http://assignment2-denisgallo.herokuapp.com/sdelab/activity_types Accept: application/json Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+{
+  "ArrayList" : [ {
+    "atName" : "Videogaming"
+  }, {
+    "atName" : "Sport"
+  }, {
+    "atName" : "Studying"
+  } ]
+}
+
+--- Step 3.7 ---
+Request #7: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming Accept: application/xml Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+<activity idActivity="101">
+   <name>Playing PUBG</name>
+   <description>Playing the PUBG videogame on PC</description>
+   <startdate>2017-11-24-15:00</startdate>
+   <place>Home</place>
+   <activity_type>
+       <atName>Videogaming</atName>
+   </activity_type>
+</activity>
+
+Request #7: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming Accept: application/json Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+{
+  "activity" : {
+    "idActivity" : 101,
+    "name" : "Playing PUBG",
+    "description" : "Playing the PUBG videogame on PC",
+    "startdate" : "2017-11-24-15:00",
+    "place" : "Home",
+    "activity_type" : {
+      "atName" : "Videogaming"
+    }
+  }
+}
+
+--- Step 3.8 ---
+Request #8: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming/101 Accept: application/xml Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+<activity idActivity="101">
+   <name>Playing PUBG</name>
+   <description>Playing the PUBG videogame on PC</description>
+   <startdate>2017-11-24-15:00</startdate>
+   <place>Home</place>
+   <activity_type>
+       <atName>Videogaming</atName>
+   </activity_type>
+</activity>
+
+Request #8: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming/101 Accept: application/json Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+{
+  "activity" : {
+    "idActivity" : 101,
+    "name" : "Playing PUBG",
+    "description" : "Playing the PUBG videogame on PC",
+    "startdate" : "2017-11-24-15:00",
+    "place" : "Home",
+    "activity_type" : {
+      "atName" : "Videogaming"
+    }
+  }
+}
+
+--- Step 3.9 ---
+Request #7: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming Accept: application/xml Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+<activity idActivity="101">
+   <name>Playing PUBG</name>
+   <description>Playing the PUBG videogame on PC</description>
+   <startdate>2017-11-24-15:00</startdate>
+   <place>Home</place>
+   <activity_type>
+       <atName>Videogaming</atName>
+   </activity_type>
+</activity>
+
+Request #7: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming Accept: application/json Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+{
+  "activity" : {
+    "idActivity" : 101,
+    "name" : "Playing PUBG",
+    "description" : "Playing the PUBG videogame on PC",
+    "startdate" : "2017-11-24-15:00",
+    "place" : "Home",
+    "activity_type" : {
+      "atName" : "Videogaming"
+    }
+  }
+}
+
+Request #9: PUT http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming Accept: application/xml Content-type: application/xml
+=> Result: OK
+=> HTTP Status: 201
+<activity idActivity="101">
+   <name>Swimming</name>
+   <description>Swimming in the river</description>
+   <startdate>2017-12-28-08:50</startdate>
+   <place>Adige river</place>
+   <activity_type>
+       <atName>Videogaming</atName>
+   </activity_type>
+</activity>
+
+Request #9: PUT http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming Accept: application/json Content-type: application/json
+=> Result: OK
+=> HTTP Status: 201
+{
+  "activity" : {
+    "idActivity" : 101,
+    "name" : "Swimming",
+    "description" : "Swimming in the river",
+    "startdate" : "2017-12-28-08:50",
+    "place" : "Adige river",
+    "activity_type" : {
+      "atName" : "Videogaming"
+    }
+  }
+}
+
+Request #7: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming Accept: application/xml Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+<activity idActivity="101">
+   <name>Swimming</name>
+   <description>Swimming in the river</description>
+   <startdate>2017-12-28-08:50</startdate>
+   <place>Adige river</place>
+   <activity_type>
+       <atName>Videogaming</atName>
+   </activity_type>
+</activity>
+
+Request #7: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming Accept: application/json Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+{
+  "activity" : {
+    "idActivity" : 101,
+    "name" : "Swimming",
+    "description" : "Swimming in the river",
+    "startdate" : "2017-12-28-08:50",
+    "place" : "Adige river",
+    "activity_type" : {
+      "atName" : "Videogaming"
+    }
+  }
+}
+
+Step 3.9 
+=>Result: OK
+
+--- Step 3.10 ---
+Request #10: PUT http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming/101 Accept: application/xml Content-type: application/xml
+=> Result: OK
+=> HTTP Status: 200
+<activity idActivity="101">
+   <name>Swimming</name>
+   <description>Swimming in the river</description>
+   <startdate>2017-12-28-08:50</startdate>
+   <place>Adige river</place>
+   <activity_type>
+       <atName>Media</atName>
+   </activity_type>
+</activity>
+
+Request #10: PUT http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Videogaming/101 Accept: application/json Content-type: application/json
+=> Result: OK
+=> HTTP Status: 200
+{
+  "activity" : {
+    "idActivity" : 101,
+    "name" : "Swimming",
+    "description" : "Swimming in the river",
+    "startdate" : "2017-12-28-08:50",
+    "place" : "Adige river",
+    "activity_type" : {
+      "atName" : "Media"
+    }
+  }
+}
+
+Request #6: GET http://assignment2-denisgallo.herokuapp.com/sdelab/activity_types Accept: application/xml Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+<activityType>
+   <atName>Videogaming</atName>
+</activityType>
+<activityType>
+   <atName>Sport</atName>
+</activityType>
+<activityType>
+   <atName>Studying</atName>
+</activityType>
+<activityType>
+   <atName>Media</atName>
+</activityType>
+
+Request #6: GET http://assignment2-denisgallo.herokuapp.com/sdelab/activity_types Accept: application/json Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+{
+  "ArrayList" : [ {
+    "atName" : "Videogaming"
+  }, {
+    "atName" : "Sport"
+  }, {
+    "atName" : "Studying"
+  }, {
+    "atName" : "Media"
+  } ]
+}
+
+Step 3.10 
+=>Result: OK
+
+--- Step 3.11 ---
+Request #11: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Media?before=2017-12-30-10:30&after=2017-12-25-08:36 Accept: application/xml Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+<activity idActivity="101">
+   <name>Swimming</name>
+   <description>Swimming in the river</description>
+   <startdate>2017-12-28-08:50</startdate>
+   <place>Adige river</place>
+   <activity_type>
+       <atName>Media</atName>
+   </activity_type>
+</activity>
+
+Request #11: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/1/Media?before=2017-12-30-10:30&after=2017-12-25-08:36 Accept: application/json Content-type: 
+=> Result: OK
+=> HTTP Status: 200
+{
+  "activity" : {
+    "idActivity" : 101,
+    "name" : "Swimming",
+    "description" : "Swimming in the river",
+    "startdate" : "2017-12-28-08:50",
+    "place" : "Adige river",
+    "activity_type" : {
+      "atName" : "Media"
+    }
+  }
+}
