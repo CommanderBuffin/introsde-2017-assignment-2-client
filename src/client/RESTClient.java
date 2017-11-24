@@ -29,6 +29,7 @@ public class RESTClient {
 	public int first_person_id=-1;
 	public int last_person_id=-1;
 	public int new_person_id=-1;
+	public int new_person_id_json=-1;
 	public List<ActivityType> activity_types = new ArrayList<ActivityType>();
 	public int activity_id=-1;
 	public ActivityType activity_type;
@@ -300,24 +301,31 @@ public class RESTClient {
 		p.setActivities(aa);
 		
 		Response xml = client.target(uri).request().accept(MediaType.APPLICATION_XML).post(Entity.xml(p));
-		//Response json = client.target(uri).request().accept(MediaType.APPLICATION_JSON).post(Entity.json(p));
+		
+		p.setIdPerson(id-1);
+		a.setIdActivity(23);
+		List<Activity> aa2 = new ArrayList<Activity>();
+		aa2.add(a);
+		p.setActivities(aa2);
+		Response json = client.target(uri).request().accept(MediaType.APPLICATION_JSON).post(Entity.json(p));
 
 		Person p_xml = xml.readEntity(Person.class);
-		//Person p_json = json.readEntity(Person.class);
+		Person p_json = json.readEntity(Person.class);
 		
 		new_person_id = p_xml.getIdPerson();
+		new_person_id_json = p_json.getIdPerson();
 		
 		String s_xml="";
-		//String s_json="";
+		String s_json="";
 
 		s_xml += xmlToString(p_xml)+"\r\n";
-		//s_json += jsonToString(p_json)+"\r\n";
+		s_json += jsonToString(p_json)+"\r\n";
 		
 		String resultXml = "ERROR";
-		//String resultJson = "ERROR";
+		String resultJson = "ERROR";
 		
 		String h_xml = "Request #4: POST "+uri+" Accept: "+MediaType.APPLICATION_XML+" Content-type: "+MediaType.APPLICATION_XML;
-		//String h_json = "Request #1: POST "+uri+" Accept: "+MediaType.APPLICATION_JSON+" Content-type: "+MediaType.APPLICATION_JSON;
+		String h_json = "Request #4: POST "+uri+" Accept: "+MediaType.APPLICATION_JSON+" Content-type: "+MediaType.APPLICATION_JSON;
 		
 		r+=h_xml+"\r\n";
 		if(xml.getStatusInfo().getStatusCode()==201||xml.getStatusInfo().getStatusCode()==200||xml.getStatusInfo().getStatusCode()==202)
@@ -328,13 +336,13 @@ public class RESTClient {
 		r+=s_xml;
 		r+="\r\n";
 		
-		/*r+=h_json+"\r\n";
-		if(p_json.getFirstname().equals(name))
+		r+=h_json+"\r\n";
+		if(new_person_id_json!=-1)
 			resultJson = "OK";
 		r+="=> Result: "+ resultJson+"\r\n";
 		r+="=> HTTP Status: "+xml.getStatusInfo().getStatusCode()+"\r\n";
 		r+=s_json;
-		r+="\r\n";*/
+		r+="\r\n";
 		
 		System.out.println(r);
 		return r;
@@ -345,11 +353,21 @@ public class RESTClient {
 		String uri = baseUri+"person/"+new_person_id;
 		
 		Response xml = client.target(uri).request().accept(MediaType.APPLICATION_XML).delete();
-
 		String h_xml = "Request #5: DELETE "+uri+" Accept: "+MediaType.APPLICATION_XML+" Content-type: ";
+		
+		uri = baseUri+"person/"+new_person_id_json;
+		Response json = client.target(uri).request().accept(MediaType.APPLICATION_XML).delete();
+		String h_json = "Request #5: DELETE "+uri+" Accept: "+MediaType.APPLICATION_XML+" Content-type: ";
+		
+		
 		r+=h_xml+"\r\n";
 		r+="=> Result: \r\n";
 		r+="=> HTTP Status: "+xml.getStatusInfo().getStatusCode()+"\r\n";
+		r+="\r\n";
+		
+		r+=h_json+"\r\n";
+		r+="=> Result: \r\n";
+		r+="=> HTTP Status: "+json.getStatusInfo().getStatusCode()+"\r\n";
 		r+="\r\n";
 		
 		System.out.println(r);

@@ -107,6 +107,9 @@
 	<target name="execute.client" depends="compile">
 		<echo message="Executing: Client"/>
 		<java classname="client.RunClient" classpath="${build.dir}">
+			<classpath>
+				<fileset dir="${lib.dir}"></fileset>
+			</classpath>
 		</java>
 	</target>	
 </project>

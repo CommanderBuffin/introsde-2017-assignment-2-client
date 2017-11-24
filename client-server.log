@@ -284,8 +284,34 @@ Request #4: POST http://assignment2-denisgallo.herokuapp.com/sdelab/person Accep
    </activities>
 </person>
 
+Request #4: POST http://assignment2-denisgallo.herokuapp.com/sdelab/person Accept: application/json Content-type: application/json
+=> Result: OK
+=> HTTP Status: 200
+{
+  "person" : {
+    "idPerson" : 2147483646,
+    "firstname" : "Mariangiongiangela",
+    "lastname" : "Canterniosti",
+    "birthdate" : "1990-05-21",
+    "activities" : [ {
+      "idActivity" : 23,
+      "name" : "Troll Denis",
+      "description" : "Troll Denis for his server implementation",
+      "startdate" : "2017-11-22-12:10",
+      "place" : "Uni",
+      "activity_type" : {
+        "atName" : "Studying"
+      }
+    } ]
+  }
+}
+
 --- Step 3.5 ---
 Request #5: DELETE http://assignment2-denisgallo.herokuapp.com/sdelab/person/2147483647 Accept: application/xml Content-type: 
+=> Result: 
+=> HTTP Status: 204
+
+Request #5: DELETE http://assignment2-denisgallo.herokuapp.com/sdelab/person/2147483646 Accept: application/xml Content-type: 
 => Result: 
 => HTTP Status: 204
 
