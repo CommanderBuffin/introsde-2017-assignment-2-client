@@ -75,7 +75,7 @@ public class RESTClient {
 		return callRequest1();
 	}
 	public String step2(){
-		return callRequest2(first_person_id);
+		return callRequest2(first_person_id,false);
 	}
 	public String step3(){
 		return callRequest3();
@@ -86,7 +86,7 @@ public class RESTClient {
 	public String step5(){
 		String r = "";
 		r+=callRequest5();
-		r+=callRequest2(new_person_id);
+		r+=callRequest2(new_person_id,true);
 		return r;
 	}
 	public String step6(){
@@ -183,7 +183,7 @@ public class RESTClient {
 		return r;
 	}
 	
-	public String callRequest2(int person_id) {
+	public String callRequest2(int person_id, boolean shouldBe404) {
 		String r = "";
 		String uri = baseUri+"person/"+person_id;
 		Response xml = client.target(uri).request().accept(MediaType.APPLICATION_XML).get();
@@ -213,6 +213,8 @@ public class RESTClient {
 		r+=h_xml+"\r\n";
 		if(xml.getStatusInfo().getStatusCode()==200||xml.getStatusInfo().getStatusCode()==202)
 			resultXml = "OK";
+		if(shouldBe404&&xml.getStatusInfo().getStatusCode()==404)
+			resultXml="OK";
 		r+="=> Result: "+ resultXml+"\r\n";
 		r+="=> HTTP Status: "+xml.getStatusInfo().getStatusCode()+"\r\n";
 		r+=s_xml;
@@ -221,6 +223,8 @@ public class RESTClient {
 		r+=h_json+"\r\n";
 		if(json.getStatusInfo().getStatusCode()==200||json.getStatusInfo().getStatusCode()==202)
 			resultJson = "OK";
+		if(shouldBe404&&json.getStatusInfo().getStatusCode()==404)
+			resultJson="OK";
 		r+="=> Result: "+ resultJson+"\r\n";
 		r+="=> HTTP Status: "+xml.getStatusInfo().getStatusCode()+"\r\n";
 		r+=s_json;

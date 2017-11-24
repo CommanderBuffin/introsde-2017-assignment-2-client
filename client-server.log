@@ -316,11 +316,11 @@ Request #5: DELETE http://assignment2-denisgallo.herokuapp.com/sdelab/person/214
 => HTTP Status: 204
 
 Request #2: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/2147483647 Accept: application/xml Content-type: 
-=> Result: ERROR
+=> Result: OK
 => HTTP Status: 404
 
 Request #2: GET http://assignment2-denisgallo.herokuapp.com/sdelab/person/2147483647 Accept: application/json Content-type: 
-=> Result: ERROR
+=> Result: OK
 => HTTP Status: 404
 
 --- Step 3.6 ---
